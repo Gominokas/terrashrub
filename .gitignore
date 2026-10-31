@@ -1,1 +1,25 @@
+# Rust build artifacts
 /target
+**/*.rs.bk
+
+# Terraform working directories and state.
+# Raw .tf files under land/ and shrubs/ are source and must stay tracked,
+# so only generated or local Terraform files are ignored here.
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfplan
+crash.log
+crash.*.log
+*.tfvars
+*.tfvars.json
+
+# tesh generated output (regenerable from land + shrubs + villages; never hand-edited)
+/output/
+
+# Editor and OS noise
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
