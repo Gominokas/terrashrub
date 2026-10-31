@@ -1,5 +1,12 @@
 # tesh プロジェクト設計案 v0.2
 
+> **出典・位置づけ（2026-11-01 git 取り込み時の注記）**
+> - 本書が現行の正である（tesh プロジェクト設計案 v0.2 の整理版）。今後の改訂はこの git 版に対して行う。
+> - 出典: Notion「tesh プロジェクト設計案 v0.2」 https://app.notion.com/p/32e6a05ca4d380a1a003e9426351bba3?pvs=204 を整理・再編集したもの。原案の全文は [archive/design-v0.2-notion-draft.md](archive/design-v0.2-notion-draft.md) に保存した。
+> - 関連文書: 全体設計 v0.1.0 は [design-v0.1.0.md](design-v0.1.0.md)、2026-03-09 の旧・設計書は [archive/design-2026-03-09.md](archive/design-2026-03-09.md)。
+> - v0.2 以降の決定（2026-10-31）: land の一部を shrub へ切り出す操作では、切り出した shrub を全 village（env）へ自動追加する（切り出し時点で実効構成を変えないため）。
+> - 未決事項: env の village への改名、village 間共有の単一インスタンス概念の名前と範囲、land から shrub への切り出し操作の名前。
+
 ## 1. 目的
 
 tesh は、Terraform/OpenTofu のための環境差分編集レイヤである。
