@@ -45,6 +45,7 @@ project/
 ```bash
 tesh newenv test-v2 --from prod
 tesh newshrub waf --type feature
+tesh env add-shrub test-v2 waf
 tesh build dev
 tesh plan dev
 tesh apply dev
@@ -53,6 +54,10 @@ tesh explain dev module.app.inputs.instance_type
 tesh promote shrub waf --to land
 tesh doctor
 ```
+
+実装状況: `newenv`、`newshrub`、`env add-shrub`、`build`、`doctor` が動作する。`plan`、`apply`、`diff`、`explain`、`promote` は設計（docs/design.md §7）に沿って未実装で、実行するとその旨を表示する。
+
+`build` は land → env.toml に並んだ順の shrubs の順で .tf を重ね（同名ファイルは後勝ち）、生成ファイルへ由来（provenance）コメントを付けて output/<env>/ へ出力する。出力は決定的で、output/ は毎回再生成される。
 
 ## 設計原則
 
